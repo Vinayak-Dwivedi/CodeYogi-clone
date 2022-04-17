@@ -14,7 +14,8 @@ function ProfilePage(props) {
         <Filldetail>institute name</Filldetail>
         <Filldetail>E-Mail address</Filldetail>
         <Filldetail>phone number</Filldetail>
-        <Filldetail placeholder="select date">Date of Birth</Filldetail>
+        <Filldetail placeholder="DOB">Date of Birth</Filldetail>
+
         <Filldetail>Branch</Filldetail>
       </div>
       <Link

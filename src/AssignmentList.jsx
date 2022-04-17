@@ -1,41 +1,28 @@
-import React from "react";
-import Box2 from "./Box2";
+import React, { useEffect, useState } from "react";
+import AssignmentRow from "./AssignmentRow";
+import axios from "axios";
 
 function AssignmentList() {
+  const [assignments, setAssignments] = useState([]);
+
+  useEffect(() => {
+    const token = axios.get(`https://api.codeyogi.io/batches/1/assignments`, {
+      withCredentials: true,
+    });
+
+    token.then((response) => {
+      setAssignments(response.data);
+      console.log("response");
+    });
+  }, []);
+
   return (
     <div>
       <h1 class="font-bold text-2xl ml-4 mb-4">Assignment List</h1>
       <div className=" bg-gray-200 flex  flex-col">
-        <Box2
-          title="Deploy Code Yogi app clone on Netlify"
-          time="24 thu 2022"
-          dueDate="wed March 30 2022"
-          number="5"
-        ></Box2>
-        <Box2
-          title="Create your First Full responsive webpage"
-          time="22 tues 2022"
-          dueDate="wed March 30 2022"
-          number="4"
-        ></Box2>
-        <Box2
-          title="Create TeamCard using TailwindCSS"
-          time="21 Mon 2022"
-          dueDate="wed March 30 2022"
-          number="3"
-        ></Box2>
-        <Box2
-          title="Create Supoort Card using TailwindCSS"
-          time="21 Mon 2022"
-          dueDate="wed March 30 2022"
-          number="2"
-        ></Box2>
-        <Box2
-          title="Practice responsive design"
-          time="20 Sun 2022"
-          dueDate="wed March 30 2022"
-          number="1"
-        ></Box2>
+        {assignments.map((a) => (
+          <AssignmentRow assignment={a} key={a.id} />
+        ))}
       </div>
     </div>
   );

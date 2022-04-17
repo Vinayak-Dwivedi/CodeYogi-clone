@@ -6,8 +6,10 @@ import MainLayout from "./MainLayout";
 import QuizPage from "./QuizPage";
 import ProfilePage from "./ProfilePage";
 import UpdatedProfile from "./UpdatedProfile";
-import NotFound from "./NotFound";
 import LogOut from "./LogOut";
+import NotFound from "./NotFound";
+import StudentsList from "./StudentsList";
+import AssignmentDetails from "./AssignmentDetails";
 
 function App() {
   return (
@@ -15,8 +17,13 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route path="lectures" element={<LectureList />} />
-          <Route path="assignment" element={<AssignmentList />} />
+          <Route path="assignments" element={<AssignmentList />} />
           <Route path="profile" element={<ProfilePage />} />
+          <Route path="studentslist" element={<StudentsList />} />
+          <Route
+            path="assignments/:id/details"
+            element={<AssignmentDetails />}
+          />
         </Route>
 
         <Route path="/updated" element={<UpdatedProfile />} />
