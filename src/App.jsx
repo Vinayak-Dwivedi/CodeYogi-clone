@@ -7,7 +7,7 @@ import QuizPage from "./QuizPage";
 import ProfilePage from "./ProfilePage";
 import UpdatedProfile from "./UpdatedProfile";
 import LogOut from "./LogOut";
-import NotFound from "./NotFound";
+
 import StudentsList from "./StudentsList";
 import AssignmentDetails from "./AssignmentDetails";
 
@@ -29,7 +29,7 @@ function App() {
         <Route path="/updated" element={<UpdatedProfile />} />
         <Route path="/logout" element={<LogOut />} />
         <Route path="quiz" element={<QuizPage />} />
-        <Route path="*" element={<NotFound />} />
+       
       </Routes>
     </BrowserRouter>
   );
